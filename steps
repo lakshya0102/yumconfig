@@ -1,0 +1,34 @@
+    1  mount -o loop /dev/sr0 /mnt/
+    2  mkdir /rhel.8_dvd
+    3  cd /mnt/
+    4  ls
+    5  cp -avr * /rhel.8_dvd/
+    6  cd
+    7  cd /rhel.8_dvd/
+    8  ls
+    9  cd /etc/yum.repos.d/
+   10  ls
+   11  mv redhat.repo /tmp/
+   12  ls
+   13  vim Rhel_8.0.repo
+   14  ls
+   15  cd 
+   16  vim /etc/yum.repos.d/Rhel_8.0.repo
+   In Step 10 type following statements
+   #BaseOS
+[Rhel.8.0-BaseOS]
+name= Rhel.8.0_BaseOS
+baseurl= file:///rhel.8_dvd/BaseOS
+enabled=1
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
+
+#App Stream
+[Rhel.8.0-AppStream]
+name= Rhel.8.0_AppStream
+baseurl= file:///rhel.8_dvd/AppStream
+enabled=1
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
+
+
